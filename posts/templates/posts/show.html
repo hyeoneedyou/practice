@@ -3,6 +3,7 @@
 <h1>상세보기 페이지</h1>
 <h3>글 제목 : {{ post.title }} </h3><br>
 <h3>글 내용 : {{ post.content }} </h3><br>
+<h3>카테고리 : {{ post.category }} </h3>
 {% if post.writer %}
 	{% if post.writer.username == 'user' %}
 		<h3>작성자 : {{ post.writer.last_name }} {{ post.writer.first_name }}</h3><br>

@@ -8,8 +8,8 @@ class PostAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'title',
-        'view_count',
         'created_at',
+        'category'
     )
     search_fields = (
         'title',

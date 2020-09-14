@@ -15,6 +15,15 @@
             <label>글 내용</label>
             <textarea class="form-control" name="content"></textarea>
         </div>
+        <div class="form-group">
+            <label>카테고리</label>
+            <select name="category" id="category">
+                <option value="pub">주점</option>
+                <option value="booth">부스</option>
+                <option value="performance">공연</option>
+                <option value="etc">기타</option>
+            </select>
+        </div>
         <input type="file" name="image">
         <input type="submit" value="글 작성" class="btn btn-outline-primary">
     </form>

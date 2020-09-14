@@ -13,7 +13,8 @@ def create(request):
         writer = request.user
         content = request.POST.get('content')
         image = request.FILES.get('image')
-        Post.objects.create(title=title, content=content, image=image, writer=writer)
+        category = request.POST.get('category')
+        Post.objects.create(title=title, content=content, image=image, writer=writer, category=category)
         return redirect('posts:main')
 
 
@@ -75,3 +76,5 @@ def like_list(request):
     likes = request.user.like_set.all()
     return render(request,'posts/like_list.html',{'likes':likes})
 
+def gallery(request):
+    return render(request, 'posts/gallery.html')
