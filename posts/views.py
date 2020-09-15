@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 def new(request):
     return render(request, 'posts/new.html')
+    
 
 
 def create(request):
@@ -12,9 +13,9 @@ def create(request):
         title = request.POST.get('title')
         writer = request.user
         content = request.POST.get('content')
-        image = request.FILES.get('image')
+        work = request.FILES.get('work')
         category = request.POST.get('category')
-        Post.objects.create(title=title, content=content, image=image, writer=writer, category=category)
+        Post.objects.create(title=title, content=content, work=work, writer=writer, category=category)
         return redirect('posts:main')
 
 

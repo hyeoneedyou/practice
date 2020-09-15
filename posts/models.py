@@ -3,21 +3,21 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     POST_CATEGORY_CHOICES = [
-        ('주', '점'),
-        ('부', '스'),
-        ('공', '연'),
-        ('기', '타'),
+        ('pub', 'pub'),
+        ('booth', 'booth'),
+        ('performance', 'performance'),
+        ('etc', 'etc'),
     ]
+    category = models.CharField(choices=POST_CATEGORY_CHOICES, max_length=300)
     title = models.CharField(max_length= 50, null=False)
     writer = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
-    content = models.TextField()
+    content = models.TextField(null = True)
     view_count = models.IntegerField(default = 0)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
-    image = models.ImageField(upload_to='images/', null=True)
+    work = models.FileField(upload_to='works/', null = True)
     like_user_set = models.ManyToManyField(User, blank=True, related_name='like_user_set', through='Like')
-    category = models.CharField(choices=POST_CATEGORY_CHOICES, max_length=300, null=True)
-
+   
     @property
     def like_count(self):
         return self.like_user_set.count()
